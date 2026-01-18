@@ -138,10 +138,11 @@ export default function CompanyDetailPage({ params }: { params: Promise<{ id: st
     }
   };
 
-  const handleResendInvite = async (clientId: string) => {
-    const response = await api.sendInvite(clientId);
+  const handleResendInvite = async (companyId: string, email: string) => {
+    const response = await api.resendInvite(companyId, email);
     if (response.success) {
       setFormMessage({ type: "success", text: "Invitation sent successfully" });
+      loadCompanyData();
     } else {
       setFormMessage({ type: "error", text: response.message || "Failed to send invitation" });
     }
@@ -491,7 +492,7 @@ export default function CompanyDetailPage({ params }: { params: Promise<{ id: st
                           Reset Password
                         </button>
                         <button
-                          onClick={() => handleResendInvite(client.id)}
+                          onClick={() => handleResendInvite(id, client.email)}
                           className="px-3 py-1.5 text-sm rounded-lg font-medium bg-[var(--background)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border)] transition-colors"
                         >
                           Resend Invite
