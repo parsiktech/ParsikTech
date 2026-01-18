@@ -17,7 +17,7 @@ export default function Work() {
       description: "Education and training platform for universities and businesses",
       category: "Products",
       tags: ["Web App", "Product"],
-      image: "/saferoutepic.png",
+      image: "/Saferoute/saferoute (1).png",
       slug: "saferoute",
     },
     {
