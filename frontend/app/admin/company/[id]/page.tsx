@@ -492,7 +492,7 @@ export default function CompanyDetailPage({ params }: { params: Promise<{ id: st
                           Reset Password
                         </button>
                         <button
-                          onClick={() => handleResendInvite(id, client.email)}
+                          onClick={() => handleResendInvite(resolvedParams.id, client.email)}
                           className="px-3 py-1.5 text-sm rounded-lg font-medium bg-[var(--background)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border)] transition-colors"
                         >
                           Resend Invite
