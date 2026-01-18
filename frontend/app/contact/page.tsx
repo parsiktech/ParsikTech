@@ -25,21 +25,15 @@ export default function Contact() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-[var(--background)]">
+      <section className="relative min-h-[50vh] md:h-[40vh] flex items-center justify-center overflow-hidden bg-[var(--background)] pt-24 md:pt-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#6366F1]/20 via-[var(--background)] to-[#3B82F6]/10 animate-gradient-shift"></div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
             Get in Touch with Parsik Tech
           </h1>
-          <p className="text-xl text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Have questions or want to discuss a project? We're here to help.
           </p>
-          <a
-            href="#contact-form"
-            className="inline-block bg-[#6366F1] text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-[#5558E3] transition-all hover:scale-105 shadow-lg shadow-[#6366F1]/20"
-          >
-            Send a Message
-          </a>
         </div>
       </section>
 

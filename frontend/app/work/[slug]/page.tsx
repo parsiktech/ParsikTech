@@ -13,7 +13,7 @@ const caseStudies: { [key: string]: any } = {
     tagline: "Building a scalable education platform for workforce development",
     category: "Products",
     tags: ["Web App", "Product", "EdTech"],
-    image: "/saferoutepic.png",
+    image: "/Saferoute/saferoute (1).png",
     challenge: "Organizations needed a comprehensive platform to manage employee onboarding, compliance training, and professional certifications across multiple industries. Existing solutions were fragmented, expensive, and lacked the flexibility to support both universities and businesses.",
     solution: "We built SafeRoute as a full-scale education and training platform that handles everything from onboarding programs to accredited certifications. The platform provides real-time visibility into learner progress, automated compliance tracking, and supports multiple credential types across industries.",
     results: [
