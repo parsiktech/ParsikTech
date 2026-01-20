@@ -78,9 +78,9 @@ const products = [
     primaryCta: { label: 'Request a Demo', href: '/contact', external: false },
     secondaryCta: null,
     images: [
-      { src: '/lockshore/lockshore (2).png', label: 'Overview' },
-      { src: '/lockshore/lockshore (1).png', label: 'Scripts' },
-      { src: '/lockshore/lockshore (3).png', label: 'Monitoring' }
+      { src: '/Lockshore/lockshore (2).png', label: 'Overview' },
+      { src: '/Lockshore/lockshore (1).png', label: 'Scripts' },
+      { src: '/Lockshore/lockshore (3).png', label: 'Monitoring' }
     ]
   }
 ];
@@ -271,7 +271,7 @@ export default function Products() {
                             key={index}
                             src={image.src}
                             alt={`${currentProduct.name} - ${image.label}`}
-                            className={`absolute inset-0 w-full h-full object-contain transition-all duration-250 ease-out ${
+                            className={`absolute inset-0 w-full h-full object-cover transition-all duration-250 ease-out ${
                               getActiveImageIndex(currentProduct.id) === index
                                 ? 'opacity-100 scale-100'
                                 : 'opacity-0 scale-95'
