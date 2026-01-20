@@ -355,7 +355,7 @@ export default function Home() {
                         key={index}
                         src={image.src}
                         alt={`Operations Dashboard - ${image.label}`}
-                        className={`absolute inset-0 w-full h-full object-contain transition-all duration-300 ${
+                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${
                           activeImageIndex === index
                             ? 'opacity-100 scale-100'
                             : 'opacity-0 scale-95'
