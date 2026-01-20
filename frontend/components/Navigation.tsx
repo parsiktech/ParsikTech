@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -103,8 +104,15 @@ export default function Navigation() {
         }`}
       >
         <div className="w-full px-6 md:px-12 py-6 flex items-center justify-between">
-          <Link href="/" className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] hover:text-[#6366F1] transition-colors">
-            Parsik Tech
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/PTG LOGOS/WhitePTnoBG.png"
+              alt="Parsik Tech"
+              width={140}
+              height={40}
+              className="h-8 md:h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
