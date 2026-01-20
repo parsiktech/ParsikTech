@@ -12,11 +12,51 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus({
+          type: "success",
+          message: data.message || "Message sent successfully!",
+        });
+        // Clear form
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send message. Please try again or email us directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,6 +83,30 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Form */}
             <div className="bg-[var(--card-bg)] rounded-xl p-8 border border-[var(--border)]">
+              {/* Status Messages */}
+              {submitStatus.type && (
+                <div
+                  className={`mb-6 p-4 rounded-lg ${
+                    submitStatus.type === "success"
+                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                      : "bg-red-500/10 border border-red-500/20 text-red-400"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    {submitStatus.type === "success" ? (
+                      <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )}
+                    <p>{submitStatus.message}</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-[var(--text-primary)] font-medium mb-2">
@@ -52,7 +116,8 @@ export default function Contact() {
                     type="text"
                     id="name"
                     required
-                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors disabled:opacity-50"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
@@ -66,7 +131,8 @@ export default function Contact() {
                     type="email"
                     id="email"
                     required
-                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors disabled:opacity-50"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
@@ -79,7 +145,8 @@ export default function Contact() {
                   <input
                     type="text"
                     id="subject"
-                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors disabled:opacity-50"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   />
@@ -93,7 +160,8 @@ export default function Contact() {
                     id="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] focus:outline-none focus:border-[#6366F1] transition-colors resize-none disabled:opacity-50"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
@@ -101,9 +169,20 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#6366F1] text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-[#5558E3] transition-all hover:scale-105 shadow-lg shadow-[#6366F1]/20"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#6366F1] text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-[#5558E3] transition-all hover:scale-105 shadow-lg shadow-[#6366F1]/20 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </form>
             </div>
@@ -120,7 +199,7 @@ export default function Contact() {
                     </svg>
                     <div>
                       <p className="text-[var(--text-secondary)] text-sm">Phone</p>
-                      <a href="tel:+1234567890" className="text-[var(--text-primary)] hover:text-[#6366F1] transition-colors">
+                      <a href="tel:+17866967762" className="text-[var(--text-primary)] hover:text-[#6366F1] transition-colors">
                         +1 (786) 696-7762
                       </a>
                     </div>
@@ -132,8 +211,8 @@ export default function Contact() {
                     </svg>
                     <div>
                       <p className="text-[var(--text-secondary)] text-sm">Email</p>
-                      <a href="mailto:hello@parsiktech.com" className="text-[var(--text-primary)] hover:text-[#6366F1] transition-colors">
-                        parsiktech@gmail.com
+                      <a href="mailto:support@parsiktechgroup.com" className="text-[var(--text-primary)] hover:text-[#6366F1] transition-colors">
+                        support@parsiktechgroup.com
                       </a>
                     </div>
                   </div>

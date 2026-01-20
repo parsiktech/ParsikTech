@@ -293,8 +293,126 @@ If you didn't request this, you can safely ignore this email.
   return sendEmail({ to, subject, html, text });
 };
 
+const sendContactFormEmail = async ({ name, email, subject, message }) => {
+  const emailSubject = subject ? `Contact Form: ${subject}` : `Contact Form Submission from ${name}`;
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; background-color: #0a0a0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0a0a0f; padding: 40px 20px;">
+        <tr>
+          <td align="center">
+            <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px;">
+              <!-- Logo -->
+              <tr>
+                <td align="center" style="padding-bottom: 30px;">
+                  <h1 style="margin: 0; font-size: 28px; color: #ffffff;">
+                    Parsik<span style="color: #6366F1;">Tech</span>
+                  </h1>
+                </td>
+              </tr>
+
+              <!-- Main Card -->
+              <tr>
+                <td style="background-color: #12121a; border-radius: 16px; border: 1px solid #1e1e2e; padding: 40px;">
+                  <h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 600; color: #ffffff; text-align: center;">
+                    New Contact Form Submission
+                  </h2>
+
+                  <!-- Sender Info -->
+                  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
+                    <tr>
+                      <td style="padding: 12px 16px; background-color: #1a1a2e; border-radius: 8px; margin-bottom: 12px;">
+                        <p style="margin: 0 0 4px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">From</p>
+                        <p style="margin: 0; font-size: 16px; color: #ffffff;">${name}</p>
+                      </td>
+                    </tr>
+                    <tr><td style="height: 12px;"></td></tr>
+                    <tr>
+                      <td style="padding: 12px 16px; background-color: #1a1a2e; border-radius: 8px;">
+                        <p style="margin: 0 0 4px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
+                        <p style="margin: 0; font-size: 16px; color: #6366F1;">
+                          <a href="mailto:${email}" style="color: #6366F1; text-decoration: none;">${email}</a>
+                        </p>
+                      </td>
+                    </tr>
+                    ${subject ? `
+                    <tr><td style="height: 12px;"></td></tr>
+                    <tr>
+                      <td style="padding: 12px 16px; background-color: #1a1a2e; border-radius: 8px;">
+                        <p style="margin: 0 0 4px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Subject</p>
+                        <p style="margin: 0; font-size: 16px; color: #ffffff;">${subject}</p>
+                      </td>
+                    </tr>
+                    ` : ''}
+                  </table>
+
+                  <!-- Message -->
+                  <div style="padding: 16px; background-color: #1a1a2e; border-radius: 8px; border-left: 4px solid #6366F1;">
+                    <p style="margin: 0 0 8px 0; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Message</p>
+                    <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #e5e7eb; white-space: pre-wrap;">${message}</p>
+                  </div>
+
+                  <!-- Reply Button -->
+                  <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 24px;">
+                    <tr>
+                      <td align="center">
+                        <a href="mailto:${email}?subject=Re: ${subject || 'Your inquiry to Parsik Tech'}" style="display: inline-block; background-color: #6366F1; color: #ffffff; font-size: 16px; font-weight: 600; text-decoration: none; padding: 14px 32px; border-radius: 8px;">
+                          Reply to ${name}
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td style="padding-top: 30px;">
+                  <p style="margin: 0; font-size: 12px; color: #4b5563; text-align: center;">
+                    This message was sent from the contact form at parsiktechgroup.com
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>
+  `;
+
+  const text = `
+New Contact Form Submission
+
+From: ${name}
+Email: ${email}
+${subject ? `Subject: ${subject}` : ''}
+
+Message:
+${message}
+
+---
+This message was sent from the contact form at parsiktechgroup.com
+  `;
+
+  // Send to your email
+  return sendEmail({
+    to: process.env.CONTACT_EMAIL || 'support@parsiktechgroup.com',
+    subject: emailSubject,
+    html,
+    text
+  });
+};
+
 module.exports = {
   sendEmail,
   sendInviteEmail,
   sendPasswordResetEmail,
+  sendContactFormEmail,
 };

@@ -38,6 +38,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Import routes
 const authRoutes = require('./routes/auth');
 const inviteRoutes = require('./routes/invite');
+const contactRoutes = require('./routes/contact');
 const adminCompaniesRoutes = require('./routes/admin/companies');
 const adminClientsRoutes = require('./routes/admin/clients');
 const adminUpdatesRoutes = require('./routes/admin/updates');
@@ -48,6 +49,7 @@ const clientRoutes = require('./routes/client');
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/invite', inviteRoutes);
+app.use('/api/contact', contactRoutes);
 app.use('/api/admin/companies', adminCompaniesRoutes);
 app.use('/api/admin/clients', adminClientsRoutes);
 app.use('/api/admin/updates', adminUpdatesRoutes);
