@@ -108,9 +108,9 @@ export default function Navigation() {
             <Image
               src="/PTG LOGOS/WhitePTnoBG.png"
               alt="Parsik Tech"
-              width={140}
-              height={40}
-              className="h-8 md:h-10 w-auto"
+              width={200}
+              height={60}
+              className="h-12 md:h-14 w-auto"
               priority
             />
           </Link>
