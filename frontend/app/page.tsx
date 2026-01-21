@@ -130,10 +130,10 @@ export default function Home() {
 
           <div className="max-w-5xl mx-auto relative z-10">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
-              Digital systems. Built to operate. Built to scale.
+              Where software, strategy, and execution come together.
             </h1>
             <p className="text-xl md:text-2xl text-[var(--text-secondary)] mb-10 leading-relaxed max-w-3xl">
-              We design, deploy, and manage production-grade software and growth systems for businesses that value execution over experimentation.
+              Software, infrastructure, and growth solutions designed to perform and scale.
             </p>
 
             {/* CTA Row */}
