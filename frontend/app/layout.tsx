@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     images: ["/PTG LOGOS/WhiteTPTGblackBG.png"],
   },
   icons: {
-    icon: "/PTG LOGOS/WhitePTnoBG.png",
-    apple: "/PTG LOGOS/WhitePTnoBG.png",
+    icon: "/EvilEyeLogo.png",
+    apple: "/EvilEyeLogo.png",
   },
 };
 

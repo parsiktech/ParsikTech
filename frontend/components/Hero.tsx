@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--background)]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--background)] md:pt-32 lg:pt-0">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#6366F1]/20 via-[var(--background)] to-[#3B82F6]/10 animate-gradient-shift"></div>
 
