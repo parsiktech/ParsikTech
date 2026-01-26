@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 
@@ -49,18 +48,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47"
-          strategy="afterInteractive"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-LDX1BJYQ47');
+            `,
+          }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-LDX1BJYQ47');
-          `}
-        </Script>
       </head>
       <body
         className={`${inter.variable} antialiased font-sans`}

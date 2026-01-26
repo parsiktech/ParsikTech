@@ -1,7 +1,6 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import Script from "next/script";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
@@ -137,15 +136,6 @@ export default function CaseStudy() {
 
   return (
     <PageTransition>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47" strategy="beforeInteractive" />
-      <Script id="google-analytics" strategy="beforeInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-LDX1BJYQ47');
-        `}
-      </Script>
       <main className="min-h-screen bg-[var(--background)]">
         <Navigation />
 
