@@ -60,9 +60,23 @@ export default function Contact() {
   };
 
   return (
-    <PageTransition>
-      <main className="min-h-screen bg-[var(--background)]">
-      <Navigation />
+    <>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-LDX1BJYQ47');
+            `,
+          }}
+        />
+      </head>
+      <PageTransition>
+        <main className="min-h-screen bg-[var(--background)]">
+        <Navigation />
 
       {/* Hero Section */}
       <section className="relative min-h-[50vh] md:h-[40vh] flex items-center justify-center overflow-hidden bg-[var(--background)] pt-24 md:pt-0">
@@ -258,7 +272,8 @@ export default function Contact() {
       </section>
 
       <Footer />
-    </main>
-    </PageTransition>
+      </main>
+      </PageTransition>
+    </>
   );
 }

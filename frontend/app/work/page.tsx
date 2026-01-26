@@ -43,9 +43,23 @@ export default function Work() {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <PageTransition>
-      <main className="min-h-screen bg-[var(--background)]">
-        <Navigation />
+    <>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-LDX1BJYQ47');
+            `,
+          }}
+        />
+      </head>
+      <PageTransition>
+        <main className="min-h-screen bg-[var(--background)]">
+          <Navigation />
 
         {/* Hero */}
         <section className="relative pt-32 pb-16 px-6 bg-[var(--background)] overflow-hidden">
@@ -177,8 +191,9 @@ export default function Work() {
           </div>
         </section>
 
-        <Footer />
-      </main>
-    </PageTransition>
+          <Footer />
+        </main>
+      </PageTransition>
+    </>
   );
 }
