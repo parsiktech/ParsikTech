@@ -9,20 +9,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The Parsik Tech Group",
-  description: "Creating products and custom solutions for modern businesses",
+  title: "Parsik Tech Group – Software, Systems, Execution",
+  description: "We build custom software, websites, and marketing systems that automate growth, improve conversions, and scale with your business.",
   metadataBase: new URL("https://parsiktechgroup.com"),
   openGraph: {
-    title: "The Parsik Tech Group",
-    description: "Creating products and custom solutions for modern businesses",
+    title: "Parsik Tech Group – Software, Systems, Execution",
+    description: "We build custom software, websites, and marketing systems that automate growth, improve conversions, and scale with your business.",
     url: "https://parsiktechgroup.com",
-    siteName: "Parsik Tech",
+    siteName: "Parsik Tech Group",
     images: [
       {
         url: "/PTG LOGOS/WhiteTPTGblackBG.png",
         width: 1200,
         height: 630,
-        alt: "Parsik Tech",
+        alt: "Parsik Tech Group",
       },
     ],
     locale: "en_US",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Parsik Tech Group",
-    description: "Creating products and custom solutions for modern businesses",
+    title: "Parsik Tech Group – Software, Systems, Execution",
+    description: "We build custom software, websites, and marketing systems that automate growth, improve conversions, and scale with your business.",
     images: ["/PTG LOGOS/WhiteTPTGblackBG.png"],
   },
   icons: {
