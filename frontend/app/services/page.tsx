@@ -219,8 +219,8 @@ export default function Services() {
 
   return (
     <PageTransition>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47" />
-      <Script id="google-analytics">
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47" strategy="beforeInteractive" />
+      <Script id="google-analytics" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
