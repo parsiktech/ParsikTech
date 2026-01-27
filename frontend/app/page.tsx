@@ -62,11 +62,11 @@ export default function Home() {
             const totalFrames = (duration / 1000) * fps;
 
             const targets = {
-              revenue: 1,
-              adSpend: 2,
-              leads: 100,
-              costs: 500,
-              efficiency: 30
+              revenue: 400,
+              adSpend: 50,
+              leads: 600,
+              costs: 350,
+              efficiency: 75
             };
 
             let frame = 0;
@@ -220,7 +220,7 @@ export default function Home() {
               {/* Revenue Generated */}
               <div className="text-center">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-2 tracking-tight">
-                  ${hasAnimated ? counts.revenue : 0}M+
+                  ${hasAnimated ? counts.revenue : 0}k+
                 </div>
                 <div className="text-base md:text-lg font-medium text-[var(--text-primary)] mb-1">
                   Revenue Generated
@@ -233,7 +233,7 @@ export default function Home() {
               {/* Ad Spend Managed */}
               <div className="text-center">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-2 tracking-tight">
-                  ${hasAnimated ? counts.adSpend : 0}M+
+                  ${hasAnimated ? counts.adSpend : 0}k+
                 </div>
                 <div className="text-base md:text-lg font-medium text-[var(--text-primary)] mb-1">
                   Ad Spend Managed
@@ -246,7 +246,7 @@ export default function Home() {
               {/* Leads Captured */}
               <div className="text-center">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-2 tracking-tight">
-                  {hasAnimated ? counts.leads : 0}K+
+                  {hasAnimated ? counts.leads : 0}k+
                 </div>
                 <div className="text-base md:text-lg font-medium text-[var(--text-primary)] mb-1">
                   Leads Captured
@@ -259,7 +259,7 @@ export default function Home() {
               {/* Costs Replaced */}
               <div className="text-center">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-2 tracking-tight">
-                  ${hasAnimated ? counts.costs : 0}K+
+                  ${hasAnimated ? counts.costs : 0}k+
                 </div>
                 <div className="text-base md:text-lg font-medium text-[var(--text-primary)] mb-1">
                   Costs Replaced
