@@ -128,7 +128,7 @@ export default function Home() {
         <Navigation />
 
         {/* HERO SECTION — OG SIMPLICITY, MODERN CONTENT */}
-        <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+        <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden md:pt-20 lg:pt-0">
           {/* Deep vignette background */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#0E0E0E_0%,#0A0A0A_100%)]"></div>
           {/* Subtle blue/purple ambient glow */}
