@@ -35,17 +35,17 @@ export default function FeaturedWork() {
               title={project.title}
               description={project.description}
               image={project.image}
-              href={`/work/${project.slug}`}
+              href="/products"
             />
           ))}
         </div>
 
         <div className="text-center">
           <Link
-            href="/work"
+            href="/products"
             className="inline-flex items-center text-[#6366F1] hover:text-[#5558E3] transition-colors text-lg font-medium"
           >
-            View All Work
+            View All Products
             <svg
               className="w-5 h-5 ml-2"
               fill="none"

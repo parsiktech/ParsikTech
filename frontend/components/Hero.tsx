@@ -18,10 +18,10 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/work"
+            href="/products"
             className="bg-[#6366F1] text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-[#5558E3] transition-all hover:scale-105 shadow-lg shadow-[#6366F1]/20 w-full sm:w-auto"
           >
-            View Our Work
+            View Our Products
           </Link>
           <Link
             href="/contact"

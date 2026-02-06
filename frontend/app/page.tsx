@@ -110,19 +110,6 @@ export default function Home() {
 
   return (
     <>
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-LDX1BJYQ47');
-            `,
-          }}
-        />
-      </head>
       <PageTransition>
         <main className="min-h-screen bg-[#0A0A0A] relative">
         <Navigation />

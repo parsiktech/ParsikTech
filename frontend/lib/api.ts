@@ -54,7 +54,7 @@ class ApiClient {
       if (!response.ok) {
         if (response.status === 401) {
           this.setToken(null);
-          if (typeof window !== 'undefined') {
+          if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {
             window.location.href = '/admin/login';
           }
         }

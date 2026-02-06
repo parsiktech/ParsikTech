@@ -9,32 +9,53 @@ import Link from "next/link";
 // Product data for the switcher
 const products = [
   {
-    id: 'saferoute',
-    badge: 'Primary Product',
-    name: 'SafeRoute™',
-    tagline: 'Education and training that scales — built for real results.',
-    description: 'SafeRoute is a comprehensive education and training platform offering both individual, job ready courses and enterprise learning solutions for businesses and universities. Individuals can enroll in accredited courses that deliver real world credentials and industry recognized certifications. Organizations leverage SafeRoute as a full scale training platform for onboarding, compliance, and required certifications across multiple industries—complete with centralized management, progress tracking, and completion reporting for full visibility and accountability.',
+    id: 'hawkeye',
+    badge: 'In Development',
+    name: 'HawkEye',
+    logo: '/hawkeye/hawkeye-logo.png',
+    tagline: 'System visibility, done right.',
+    description: 'HawkEye is a local-first system monitoring and optimization tool that shows you what your computer is doing and gives you instant control when something needs fixing. It runs entirely on your machine, provides clear insight without technical complexity, and includes one-click actions and performance boosting tools to keep your system stable and responsive.',
     capabilities: [
-      'Onboarding programs and compliance training',
-      'Accredited, job-ready certification courses',
-      'Multi-industry training and credentialing',
-      'Full admin visibility and reporting',
-      'Community scholarships and access programs',
-      'Dynamic site-wide themes'
+      'Fully local — no data ever leaves your machine',
+      'Quick Actions for instant system issue recovery',
+      'Dynamic themes that reflect real-time system status',
+      'Boost Mode for temporary performance prioritization',
+      'Clear system insight without technical expertise',
+      'Real-time monitoring of performance, processes, and network'
     ],
-    primaryCta: { label: 'View Product', href: 'https://saferoute.com', external: true },
-    secondaryCta: { label: 'Request Demo', href: '/contact', external: false },
+    primaryCta: null,
+    secondaryCta: null,
     images: [
-      { src: '/Saferoute/saferoute (1).png', label: 'Overview' },
-      { src: '/Saferoute/saferoute (2).png', label: 'Courses' },
-      { src: '/Saferoute/saferoute (3).png', label: 'Learning' },
-      { src: '/Saferoute/saferoute (5).png', label: 'Progress' },
-      { src: '/Saferoute/saferoute (6).png', label: 'Certifications' },
-      { src: '/Saferoute/saferoute (8).png', label: 'Dashboard' },
-      { src: '/Saferoute/saferoute (10).png', label: 'Analytics' },
-      { src: '/Saferoute/saferoute (9).png', label: 'Reports' },
-      { src: '/Saferoute/saferoute (7).png', label: 'Settings' },
-      { src: '/Saferoute/saferoute (4).png', label: 'Admin' }
+      { src: '/hawkeye/Hawkeye Dashboard.png', label: 'Dashboard' },
+      { src: '/hawkeye/Hawkeyeboost.png', label: 'Boost' },
+      { src: '/hawkeye/hawkeyecpu.png', label: 'CPU' },
+      { src: '/hawkeye/hawkeyemem.png', label: 'Memory' },
+      { src: '/hawkeye/hawkeyedisk.png', label: 'Disk' },
+      { src: '/hawkeye/hawkeyenet.png', label: 'Network' },
+      { src: '/hawkeye/hawkeyegpu.png', label: 'GPU' },
+      { src: '/hawkeye/gputhreatsig.png', label: 'Threat Signal' }
+    ]
+  },
+  {
+    id: 'lockshore',
+    badge: 'Internal System',
+    name: 'Lockshore',
+    logo: '/Lockshore/LockLogo.png',
+    tagline: 'Operate and scale private server infrastructure.',
+    description: 'Lockshore is an in-house infrastructure management platform built to monitor, manage, and secure private server farms. Originally developed to operate our own infrastructure, Lockshore is also used by other private server hosting providers to maintain full control over their environments. It delivers centralized visibility into hardware, services, and system health—enabling reliable, secure, and fully self-hosted operations without dependence on third-party cloud providers.',
+    capabilities: [
+      'Private server farm monitoring',
+      'Infrastructure health & uptime tracking',
+      'Service and resource management',
+      'Secure internal access controls',
+      'Run pre-configured or custom scripts'
+    ],
+    primaryCta: { label: 'Request Access', href: '/contact', external: false },
+    secondaryCta: null,
+    images: [
+      { src: '/Lockshore/lockshore (2).png', label: 'Overview' },
+      { src: '/Lockshore/lockshore (1).png', label: 'Scripts' },
+      { src: '/Lockshore/lockshore (3).png', label: 'Monitoring' }
     ]
   },
   {
@@ -63,24 +84,32 @@ const products = [
     ]
   },
   {
-    id: 'lockshore',
-    badge: 'Internal System',
-    name: 'Lockshore',
-    tagline: 'Operate and scale private server infrastructure.',
-    description: 'Lockshore is an in-house infrastructure management platform built to monitor, manage, and secure private server farms. Originally developed to operate our own infrastructure, Lockshore is also used by other private server hosting providers to maintain full control over their environments. It delivers centralized visibility into hardware, services, and system health—enabling reliable, secure, and fully self-hosted operations without dependence on third-party cloud providers.',
+    id: 'saferoute',
+    badge: 'Education & Success',
+    name: 'SafeRoute™',
+    tagline: 'Education and training that scales — built for real results.',
+    description: 'SafeRoute is a comprehensive education and training platform offering both individual, job ready courses and enterprise learning solutions for businesses and universities. Individuals can enroll in accredited courses that deliver real world credentials and industry recognized certifications. Organizations leverage SafeRoute as a full scale training platform for onboarding, compliance, and required certifications across multiple industries—complete with centralized management, progress tracking, and completion reporting for full visibility and accountability.',
     capabilities: [
-      'Private server farm monitoring',
-      'Infrastructure health & uptime tracking',
-      'Service and resource management',
-      'Secure internal access controls',
-      'Run pre-configured or custom scripts'
+      'Onboarding programs and compliance training',
+      'Accredited, job-ready certification courses',
+      'Multi-industry training and credentialing',
+      'Full admin visibility and reporting',
+      'Community scholarships and access programs',
+      'Dynamic site-wide themes'
     ],
-    primaryCta: { label: 'Request a Demo', href: '/contact', external: false },
-    secondaryCta: null,
+    primaryCta: { label: 'View Product', href: 'https://saferoute.com', external: true },
+    secondaryCta: { label: 'Request Demo', href: '/contact', external: false },
     images: [
-      { src: '/Lockshore/lockshore (2).png', label: 'Overview' },
-      { src: '/Lockshore/lockshore (1).png', label: 'Scripts' },
-      { src: '/Lockshore/lockshore (3).png', label: 'Monitoring' }
+      { src: '/Saferoute/saferoute (1).png', label: 'Overview' },
+      { src: '/Saferoute/saferoute (2).png', label: 'Courses' },
+      { src: '/Saferoute/saferoute (3).png', label: 'Learning' },
+      { src: '/Saferoute/saferoute (5).png', label: 'Progress' },
+      { src: '/Saferoute/saferoute (6).png', label: 'Certifications' },
+      { src: '/Saferoute/saferoute (8).png', label: 'Dashboard' },
+      { src: '/Saferoute/saferoute (10).png', label: 'Analytics' },
+      { src: '/Saferoute/saferoute (9).png', label: 'Reports' },
+      { src: '/Saferoute/saferoute (7).png', label: 'Settings' },
+      { src: '/Saferoute/saferoute (4).png', label: 'Admin' }
     ]
   }
 ];
@@ -144,19 +173,6 @@ export default function Products() {
 
   return (
     <>
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-LDX1BJYQ47');
-            `,
-          }}
-        />
-      </head>
       <PageTransition>
         <main className="min-h-screen bg-[var(--background)]">
           <Navigation />
@@ -207,8 +223,11 @@ export default function Products() {
                 <div className="inline-block px-3 py-1 rounded-full bg-[#6366F1]/10 text-[#6366F1] text-sm font-medium mb-4 border border-[#6366F1]/20">
                   {currentProduct.badge}
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+                <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4 flex items-center gap-4">
                   {currentProduct.name}
+                  {'logo' in currentProduct && currentProduct.logo && (
+                    <img src={currentProduct.logo} alt={`${currentProduct.name} logo`} className="w-12 h-12 md:w-14 md:h-14 object-contain" />
+                  )}
                 </h2>
                 <p className="text-xl text-[#6366F1] mb-6">
                   {currentProduct.tagline}
@@ -239,7 +258,11 @@ export default function Products() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4">
-                  {currentProduct.primaryCta.external ? (
+                  {!currentProduct.primaryCta ? (
+                    <div className="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-bold text-lg tracking-wide">
+                      Coming Soon
+                    </div>
+                  ) : currentProduct.primaryCta.external ? (
                     <a
                       href={currentProduct.primaryCta.href}
                       target="_blank"
@@ -285,7 +308,7 @@ export default function Products() {
                             key={index}
                             src={image.src}
                             alt={`${currentProduct.name} - ${image.label}`}
-                            className={`absolute inset-0 w-full h-full object-cover transition-all duration-250 ease-out ${
+                            className={`absolute inset-0 w-full h-full object-contain transition-all duration-250 ease-out ${
                               getActiveImageIndex(currentProduct.id) === index
                                 ? 'opacity-100 scale-100'
                                 : 'opacity-0 scale-95'
@@ -422,10 +445,10 @@ export default function Products() {
                 Contact Us
               </Link>
               <Link
-                href="/work"
+                href="/services"
                 className="inline-block bg-[var(--card-bg)] text-[var(--text-primary)] px-10 py-4 rounded-lg text-lg font-medium hover:bg-[var(--card-bg)]/80 transition-all border border-[var(--border)]"
               >
-                View Our Work
+                View Our Services
               </Link>
             </div>
           </div>
