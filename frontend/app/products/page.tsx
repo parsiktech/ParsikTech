@@ -27,13 +27,13 @@ const products = [
     secondaryCta: null,
     images: [
       { src: '/hawkeye/Hawkeye Dashboard.png', label: 'Dashboard' },
-      { src: '/hawkeye/Hawkeyeboost.png', label: 'Boost' },
       { src: '/hawkeye/hawkeyecpu.png', label: 'CPU' },
       { src: '/hawkeye/hawkeyemem.png', label: 'Memory' },
       { src: '/hawkeye/hawkeyedisk.png', label: 'Disk' },
       { src: '/hawkeye/hawkeyenet.png', label: 'Network' },
       { src: '/hawkeye/hawkeyegpu.png', label: 'GPU' },
-      { src: '/hawkeye/gputhreatsig.png', label: 'Threat Signal' }
+      { src: '/hawkeye/gputhreatsig.png', label: 'Threat Signal' },
+      { src: '/hawkeye/Hawkeyeboost.png', label: 'Boost' }
     ]
   },
   {
