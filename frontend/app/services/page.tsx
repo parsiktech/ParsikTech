@@ -88,7 +88,7 @@ export default function Services() {
         "High-value offers",
         "ROI-driven teams"
       ],
-      pricingStarting: "From $2,500/month",
+      pricingStarting: "From $4,500/month",
       pricingNote: "Scales with spend & scope.",
       pairedWith: ["Website Development", "Internal Dashboards", "Business Strategy & Systems"],
       cta: "Request This Service"
