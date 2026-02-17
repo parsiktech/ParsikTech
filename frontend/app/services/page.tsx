@@ -171,7 +171,7 @@ export default function Services() {
       bestFor: [
         "Live products & platforms"
       ],
-      pricingStarting: "From $100",
+      pricingStarting: "From $500",
       pricingNote: "OR included w/ any month-month service.",
       pairedWith: ["Web Hosting & Infrastructure", "Web App Development", "Website Development"],
       cta: "Get Support"
