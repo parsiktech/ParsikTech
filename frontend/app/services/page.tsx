@@ -43,7 +43,7 @@ export default function Services() {
       bestFor: [
         "Businesses that need a site that works"
       ],
-      pricingStarting: "From $500",
+      pricingStarting: "From $1,500",
       pricingNote: "Project-based.",
       pairedWith: ["Performance Marketing", "Web Hosting & Infrastructure", "Internal Dashboards"],
       cta: "Discuss Project"
@@ -64,7 +64,7 @@ export default function Services() {
       bestFor: [
         "Replacing manual processes"
       ],
-      pricingStarting: "From $1,000",
+      pricingStarting: "From $3,500",
       pricingNote: "Depends on complexity.",
       pairedWith: ["Web Hosting & Infrastructure", "Internal Dashboards", "Technical Support & Maintenance"],
       cta: "Discuss Project"
@@ -150,7 +150,7 @@ export default function Services() {
       bestFor: [
         "Operators & founders"
       ],
-      pricingStarting: "From $1,500 (setup)",
+      pricingStarting: "From $1,000",
       pricingNote: "Ongoing sync available.",
       pairedWith: ["Business Strategy & Systems", "Performance Marketing", "Web App Development"],
       cta: "Discuss Project"
