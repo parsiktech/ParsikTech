@@ -1,21 +1,37 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Manrope, JetBrains_Mono, Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const manrope = Manrope({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Parsik Tech Group – Software, Systems, Execution",
-  description: "We build custom software, websites, and marketing systems that automate growth, improve conversions, and scale with your business.",
+  description: "Production-grade software, infrastructure, and growth — built to perform.",
   metadataBase: new URL("https://parsiktechgroup.com"),
   openGraph: {
     title: "Parsik Tech Group – Software, Systems, Execution",
-    description: "We build custom software, websites, and marketing systems that automate growth, improve conversions, and scale with your business.",
+    description: "Production-grade software, infrastructure, and growth — built to perform.",
     url: "https://parsiktechgroup.com",
     siteName: "Parsik Tech Group",
     images: [
@@ -32,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Parsik Tech Group – Software, Systems, Execution",
-    description: "We build custom software, websites, and marketing systems that automate growth, improve conversions, and scale with your business.",
+    description: "Production-grade software, infrastructure, and growth — built to perform.",
     images: ["/PTG LOGOS/WhiteTPTGblackBG.png"],
   },
   icons: {
@@ -47,10 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} antialiased font-sans`}
-      >
+    <html lang="en" className={cn("dark", "font-sans", geist.variable)}>
+      <body className={`${plusJakarta.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-LDX1BJYQ47" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`

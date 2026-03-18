@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -6,12 +8,12 @@ import PageTransition from "@/components/PageTransition";
 export default function WebApplications() {
   return (
     <>
+      <Navigation />
       <PageTransition>
-        <main className="min-h-screen bg-[var(--background)]">
-          <Navigation />
+        <main className="bg-[var(--background)]">
 
           {/* Hero */}
-          <section className="relative pt-32 pb-16 px-6 bg-[var(--background)]">
+          <section className="relative pt-16 md:pt-32 pb-16 px-6 bg-[var(--background)]">
             <div className="max-w-4xl mx-auto">
               <Link
                 href="/work"
