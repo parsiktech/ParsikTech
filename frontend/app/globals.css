@@ -351,6 +351,10 @@ input[type="button"], input[type="submit"], input[type="reset"] {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

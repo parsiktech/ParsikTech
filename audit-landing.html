@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$750 Business Systems Audit — Parsik Tech Group</title>
+  <meta name="description" content="A full review of your website, digital presence, and business tech — delivered in one week with a clear action plan. $750 flat."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #050508;
+      --bg-2:        #09090F;
+      --bg-3:        #0D0D1A;
+      --card:        #0F0F1E;
+      --card-hover:  #141428;
+      --text:        #F0F0FF;
+      --text-muted:  #7A7A9A;
+      --text-subtle: #40405A;
+      --accent:      #5A5AFF;
+      --accent-lt:   #818CF8;
+      --accent-ltr:  #A5B4FC;
+      --accent-dk:   #4040DD;
+      --accent-cyan: #00D4FF;
+      --accent-pur:  #7B2FFF;
+      --border:      rgba(255,255,255,0.06);
+      --border-acc:  rgba(90,90,255,0.28);
+      --font-d:      'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-b:      'Manrope', -apple-system, sans-serif;
+      --r:           12px;
+      --r-lg:        18px;
+      --mw:          1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4 { font-family: var(--font-d); }
+    a { color: inherit; text-decoration: none; cursor: pointer; }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 64px;
+      background: rgba(5,5,8,0.88);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-d); font-weight: 800; font-size: 18px;
+      letter-spacing: -0.02em; color: var(--text);
+    }
+    .nav-logo span {
+      background: linear-gradient(135deg,#5A5AFF,#00D4FF);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; background: var(--accent); color: #fff;
+      font-family: var(--font-d); font-weight: 600; font-size: 14px;
+      border-radius: 8px; border: none; cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--accent-dk); transform: translateY(-1px); }
+
+    /* ── CONTAINER ───────────────────────────────── */
+    .container { max-width: var(--mw); margin: 0 auto; padding: 0 32px; }
+
+    /* ── LABELS / SHARED ─────────────────────────── */
+    .label {
+      font-family: var(--font-d); font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-lt); margin-bottom: 14px;
+    }
+    .heading {
+      font-size: clamp(26px,4vw,40px); font-weight: 800;
+      letter-spacing: -.025em; line-height: 1.12; color: var(--text);
+      margin-bottom: 14px;
+    }
+    .sub {
+      font-size: 17px; color: var(--text-muted);
+      line-height: 1.7; max-width: 600px;
+    }
+
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 130px 24px 96px;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      pointer-events: none; opacity: .35;
+    }
+    .blob {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .blob-1 {
+      width: 680px; height: 680px;
+      background: radial-gradient(circle,rgba(90,90,255,.16) 0%,transparent 70%);
+      top: -120px; left: -120px;
+      animation: blob1 20s ease-in-out infinite;
+    }
+    .blob-2 {
+      width: 540px; height: 540px;
+      background: radial-gradient(circle,rgba(0,212,255,.11) 0%,transparent 70%);
+      bottom: -100px; right: -100px;
+      animation: blob2 16s ease-in-out infinite;
+    }
+    .blob-3 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle,rgba(123,47,255,.09) 0%,transparent 70%);
+      top: 38%; right: 8%;
+      animation: blob3 24s ease-in-out infinite;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 800px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 6px 16px;
+      background: rgba(90,90,255,.1); border: 1px solid rgba(90,90,255,.28);
+      border-radius: 100px; font-size: 12px; font-weight: 600;
+      color: var(--accent-ltr); margin-bottom: 30px; letter-spacing: .02em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan);
+      flex-shrink: 0; animation: pulse 2s ease-in-out infinite;
+    }
+    .hero h1 {
+      font-size: clamp(38px,6.5vw,68px); font-weight: 800;
+      line-height: 1.06; letter-spacing: -.035em;
+      color: var(--text); margin-bottom: 24px;
+    }
+    .grad {
+      background: linear-gradient(135deg,#5A5AFF 0%,#00D4FF 55%,#7B2FFF 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gshift 6s ease infinite;
+    }
+    .hero-sub {
+      font-size: clamp(16px,2.5vw,19px); color: var(--text-muted);
+      line-height: 1.7; max-width: 580px; margin: 0 auto 30px;
+    }
+    .price-row {
+      display: flex; align-items: baseline;
+      justify-content: center; gap: 12px; margin-bottom: 10px;
+    }
+    .price-big {
+      font-family: var(--font-d); font-size: clamp(48px,8vw,80px);
+      font-weight: 800; letter-spacing: -.04em; color: var(--text);
+    }
+    .price-note { font-size: 19px; color: var(--text-muted); font-weight: 400; }
+    .delivery { font-size: 13px; color: var(--text-subtle); margin-bottom: 38px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 34px; background: var(--accent); color: #fff;
+      font-family: var(--font-d); font-weight: 700; font-size: 16px;
+      border-radius: 10px; border: none; cursor: pointer;
+      position: relative; overflow: hidden;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn:hover {
+      background: var(--accent-dk); transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(90,90,255,.38);
+    }
+    .btn::after {
+      content:''; position: absolute; inset: 0;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+      transform: translateX(-100%);
+    }
+    .btn:hover::after { animation: shimmer .55s ease forwards; }
+    .btn-lg { padding: 20px 44px; font-size: 18px; border-radius: 12px; }
+    .btn-lg:hover { box-shadow: 0 12px 44px rgba(90,90,255,.42); }
+    .trust { font-size: 13px; color: var(--text-subtle); margin-top: 16px; }
+
+    /* ── PROOF BAR ───────────────────────────────── */
+    .proof-bar {
+      background: var(--accent); padding: 14px 24px; text-align: center;
+      font-family: var(--font-d); font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.92); letter-spacing: .02em;
+    }
+
+    /* ── SECTIONS ────────────────────────────────── */
+    section { padding: 100px 0; }
+    .sec-alt { background: var(--bg-2); }
+    .sec-card { background: var(--bg-3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* ── PAIN CARDS ──────────────────────────────── */
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .pain-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent); border-radius: var(--r);
+      padding: 28px 28px 24px; font-size: 15px; color: var(--text-muted);
+      line-height: 1.65; position: relative;
+      transition: border-left-color .2s, background .2s; cursor: default;
+    }
+    .pain-card:hover { background: var(--card-hover); border-left-color: var(--accent-cyan); }
+    .pain-card::before {
+      content: '"'; position: absolute; top: 10px; left: 18px;
+      font-size: 52px; font-family: Georgia,serif;
+      color: var(--accent); opacity: .2; line-height: 1; pointer-events: none;
+    }
+    .pain-card p { padding-top: 10px; }
+
+    /* ── FEATURE GRID ────────────────────────────── */
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+      margin-top: 56px;
+    }
+    .feat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 28px;
+      transition: border-color .25s, box-shadow .25s, background .2s; cursor: default;
+    }
+    .feat-card:hover {
+      border-color: var(--border-acc);
+      box-shadow: 0 0 0 1px rgba(90,90,255,.12), 0 8px 32px rgba(90,90,255,.07);
+      background: var(--card-hover);
+    }
+    .feat-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(90,90,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; color: var(--accent-lt);
+    }
+    .feat-icon svg { width: 22px; height: 22px; }
+    .feat-title {
+      font-family: var(--font-d); font-size: 16px; font-weight: 700;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .feat-desc { font-size: 14px; color: var(--text-muted); line-height: 1.62; }
+
+    /* ── DELIVERABLES ────────────────────────────── */
+    .deliv-inner { max-width: 740px; margin: 0 auto; text-align: center; }
+    .deliv-list {
+      list-style: none; margin-top: 48px;
+      display: grid; gap: 14px;
+    }
+    .deliv-item {
+      display: flex; align-items: flex-start; gap: 16px; text-align: left;
+      padding: 20px 24px;
+      background: rgba(255,255,255,.025); border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+    .deliv-check {
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(90,90,255,.13); border: 1px solid rgba(90,90,255,.28);
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+      color: var(--accent-lt);
+    }
+    .deliv-check svg { width: 16px; height: 16px; }
+    .deliv-title {
+      font-family: var(--font-d); font-weight: 700; font-size: 15px;
+      color: var(--text); margin-bottom: 4px;
+    }
+    .deliv-desc { font-size: 14px; color: var(--text-muted); line-height: 1.58; }
+
+    /* ── STEPS ───────────────────────────────────── */
+    .steps-wrap { position: relative; max-width: 680px; margin: 60px auto 0; }
+    .steps-line {
+      position: absolute; left: 24px; top: 44px; bottom: 44px; width: 1px;
+      background: linear-gradient(to bottom,var(--accent),rgba(90,90,255,.1));
+    }
+    .step { display: flex; gap: 28px; align-items: flex-start; padding-bottom: 52px; }
+    .step:last-child { padding-bottom: 0; }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-d); font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 2;
+      box-shadow: 0 0 0 7px rgba(90,90,255,.1);
+    }
+    .step-body { flex: 1; padding-top: 8px; }
+    .step-tag {
+      display: inline-block; padding: 3px 10px;
+      background: rgba(90,90,255,.1); border: 1px solid rgba(90,90,255,.24);
+      border-radius: 100px; font-size: 11px; font-weight: 700;
+      font-family: var(--font-d); color: var(--accent-ltr);
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .step-title {
+      font-family: var(--font-d); font-size: 18px; font-weight: 700;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .step-desc { font-size: 15px; color: var(--text-muted); line-height: 1.68; }
+
+    /* ── WHO GRID ────────────────────────────────── */
+    .who-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+      margin-top: 56px;
+    }
+    .who-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 26px 20px; text-align: center;
+      transition: border-color .2s, background .2s, transform .2s; cursor: default;
+    }
+    .who-card:hover {
+      border-color: var(--border-acc); background: var(--card-hover);
+      transform: translateY(-3px);
+    }
+    .who-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(90,90,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; color: var(--accent-lt);
+    }
+    .who-icon svg { width: 24px; height: 24px; }
+    .who-title {
+      font-family: var(--font-d); font-size: 14px; font-weight: 700;
+      color: var(--text); margin-bottom: 4px;
+    }
+    .who-sub { font-size: 12px; color: var(--text-muted); }
+
+    /* ── FAQ ─────────────────────────────────────── */
+    .faq-list { max-width: 740px; margin: 48px auto 0; display: grid; gap: 10px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left; padding: 20px 24px;
+      background: none; border: none; color: var(--text);
+      font-family: var(--font-d); font-size: 15px; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--accent-ltr); }
+    .faq-chev {
+      width: 20px; height: 20px; flex-shrink: 0;
+      color: var(--text-muted); transition: transform .25s;
+    }
+    .faq-item.open .faq-chev { transform: rotate(180deg); }
+    .faq-a {
+      padding: 16px 24px 22px; font-size: 15px; color: var(--text-muted);
+      line-height: 1.72; border-top: 1px solid var(--border); display: none;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA BLOCK ───────────────────────────────── */
+    .cta-sec {
+      position: relative; padding: 120px 24px;
+      text-align: center; overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 72% 65% at 50% 50%,rgba(90,90,255,.14) 0%,transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+    .cta-h {
+      font-size: clamp(28px,5vw,50px); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.1;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .cta-sub {
+      font-size: 17px; color: var(--text-muted);
+      line-height: 1.68; margin-bottom: 44px;
+    }
+    .cta-note { margin-top: 16px; font-size: 13px; color: var(--text-subtle); }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--bg); border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap; text-align: center;
+    }
+    .footer-copy { font-size: 13px; color: var(--text-subtle); }
+    .footer-link {
+      font-size: 13px; color: var(--accent-lt);
+      transition: color .2s;
+    }
+    .footer-link:hover { color: var(--accent-cyan); }
+
+    /* ── KEYFRAMES ───────────────────────────────── */
+    @keyframes blob1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      25%      { transform: translate(30px,-40px) scale(1.06); }
+      50%      { transform: translate(-20px,20px) scale(0.94); }
+      75%      { transform: translate(15px,30px) scale(1.02); }
+    }
+    @keyframes blob2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(-25px,30px) scale(1.08); }
+      66%      { transform: translate(20px,-25px) scale(0.93); }
+    }
+    @keyframes blob3 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      40%      { transform: translate(20px,15px) scale(1.05); }
+      80%      { transform: translate(-15px,-20px) scale(0.97); }
+    }
+    @keyframes gshift {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    @keyframes shimmer {
+      from { transform: translateX(-100%); }
+      to   { transform: translateX(100%); }
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .4; }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 960px) {
+      .pain-grid { grid-template-columns: repeat(2,1fr); }
+      .feat-grid  { grid-template-columns: repeat(2,1fr); }
+      .who-grid   { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .container { padding: 0 16px; }
+      section { padding: 76px 0; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .feat-grid  { grid-template-columns: 1fr; margin-top: 40px; }
+      .who-grid   { grid-template-columns: repeat(2,1fr); margin-top: 40px; }
+      .hero { padding: 104px 16px 72px; }
+      .steps-line { left: 20px; }
+      .step { gap: 20px; }
+      .cta-sec { padding: 88px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────── -->
+<nav>
+  <a href="https://parsiktechgroup.com" class="nav-logo">PTG<span>.</span></a>
+  <a href="#cta" class="nav-cta">
+    Get Your Audit
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────── -->
+<section class="hero">
+  <svg class="hero-grid" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="pg" width="80" height="80" patternUnits="userSpaceOnUse">
+        <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#5A5AFF" stroke-width="0.4"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#pg)"/>
+  </svg>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="badge" role="status">
+      <span class="badge-dot" aria-hidden="true"></span>
+      Limited Availability
+    </div>
+
+    <h1>Find Out Exactly What Your Business Is <span class="grad">Losing Online</span></h1>
+
+    <p class="hero-sub">A full review of your website, digital presence, and business tech — delivered in one week with a clear action plan.</p>
+
+    <div class="price-row" aria-label="Price: $750 flat, no surprises">
+      <span class="price-big">$750</span>
+      <span class="price-note">flat. No surprises.</span>
+    </div>
+    <p class="delivery">5–7 business days &nbsp;·&nbsp; Written report + 60-min strategy call</p>
+
+    <a href="#cta" class="btn">
+      Book Your Audit
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p class="trust">No agency retainer. No long-term commitment. Just answers.</p>
+  </div>
+</section>
+
+<!-- ── PROOF BAR ──────────────────────────────────── -->
+<div class="proof-bar" role="marquee" aria-label="Service areas">
+  Law firms, medical practices, restaurants, gyms, retail, startups &amp; more
+</div>
+
+<!-- ── PROBLEM ────────────────────────────────────── -->
+<section class="sec-alt">
+  <div class="container">
+    <p class="label">The Problem</p>
+    <h2 class="heading">You've built a solid business.<br>But something's not clicking online.</h2>
+    <p class="sub">Most local business owners we talk to can feel it — they're just not sure where the leak is.</p>
+
+    <div class="pain-grid" style="margin-top:52px;">
+      <div class="pain-card"><p>I know we're losing leads somewhere but I have no idea where they're dropping off.</p></div>
+      <div class="pain-card"><p>Our website is embarrassing but I don't know if a redesign is actually the fix.</p></div>
+      <div class="pain-card"><p>I've paid for SEO and marketing before and have nothing to show for it.</p></div>
+      <div class="pain-card"><p>Everything is duct-taped together and I don't know what we actually need to fix first.</p></div>
+      <div class="pain-card"><p>We look smaller online than we are — and I think it's costing us clients.</p></div>
+      <div class="pain-card"><p>I don't know if the money I'm spending on ads and tools is actually working.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S INCLUDED ────────────────────────────── -->
+<section>
+  <div class="container">
+    <p class="label">What We Review</p>
+    <h2 class="heading">Five areas. One clear picture.</h2>
+    <p class="sub">We go through every part of your digital presence and business systems — then tell you exactly what we found.</p>
+
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="feat-title">Website</div>
+        <div class="feat-desc">Speed, mobile performance, UX gaps, call-to-action clarity, broken elements, and technical health.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div class="feat-title">Digital Presence</div>
+        <div class="feat-desc">Google Business Profile, local SEO signals, online directories, reviews, and social media consistency.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="feat-title">Tech Stack</div>
+        <div class="feat-desc">CRM, booking tools, email automation, integrations — what's missing, what's redundant, what's costing you.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="feat-title">Competitor Snapshot</div>
+        <div class="feat-desc">Side-by-side look at 2–3 of your direct local competitors and where you're losing ground.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <div class="feat-title">Operations</div>
+        <div class="feat-desc">Manual processes that should be automated, client experience friction points, and underused tools.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="feat-title">Prioritized Action Plan</div>
+        <div class="feat-desc">Quick wins, 30-day fixes, and 60–90 day projects — ranked by impact so you know exactly what to do first.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DELIVERABLES ────────────────────────────────── -->
+<section class="sec-card">
+  <div class="container">
+    <div class="deliv-inner">
+      <h2 class="heading">What you walk away with</h2>
+      <ul class="deliv-list" aria-label="Deliverables">
+        <li class="deliv-item">
+          <div class="deliv-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="deliv-title">Written audit report (PDF)</div>
+            <div class="deliv-desc">Findings organized by priority: Critical, Important, and Nice-to-Have.</div>
+          </div>
+        </li>
+        <li class="deliv-item">
+          <div class="deliv-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="deliv-title">60-minute strategy call</div>
+            <div class="deliv-desc">Walk through every finding together — no fluff, no pitch.</div>
+          </div>
+        </li>
+        <li class="deliv-item">
+          <div class="deliv-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="deliv-title">Prioritized action list</div>
+            <div class="deliv-desc">Quick wins you can execute this week, plus a 30/60/90-day roadmap.</div>
+          </div>
+        </li>
+        <li class="deliv-item">
+          <div class="deliv-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="deliv-title">Loom walkthrough</div>
+            <div class="deliv-desc">Optional recorded video walkthrough of your report for your team.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────────── -->
+<section class="sec-alt">
+  <div class="container">
+    <p class="label">The Process</p>
+    <h2 class="heading">Simple. Fast. No heavy lifting on your end.</h2>
+    <p class="sub">The whole thing takes one week. You fill out a 10-minute intake form — we handle the rest.</p>
+
+    <div class="steps-wrap">
+      <div class="steps-line" aria-hidden="true"></div>
+
+      <div class="step">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-body">
+          <span class="step-tag">Day 0</span>
+          <h3 class="step-title">Pay &amp; Fill Out Intake</h3>
+          <p class="step-desc">Secure your spot for $750. Fill out a short intake form — your website, the tools you use, your goals, and your biggest frustrations. Takes about 10 minutes.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-body">
+          <span class="step-tag">Days 2–5</span>
+          <h3 class="step-title">We Do the Work</h3>
+          <p class="step-desc">PTG conducts the full audit across all five areas. No meetings needed. No back-and-forth. You run your business — we dig in.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-body">
+          <span class="step-tag">Day 6</span>
+          <h3 class="step-title">Report Delivered</h3>
+          <p class="step-desc">You receive your written audit report in PDF format, with an optional Loom walkthrough. Everything organized by priority — no jargon, no filler.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num" aria-hidden="true">4</div>
+        <div class="step-body">
+          <span class="step-tag">Day 7</span>
+          <h3 class="step-title">Strategy Call</h3>
+          <p class="step-desc">We hop on a 60-minute call to walk through findings together, answer any questions, and talk through what to do next. You leave with a clear plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ───────────────────────────────── -->
+<section>
+  <div class="container">
+    <p class="label">Who It's For</p>
+    <h2 class="heading">Built for local business owners.</h2>
+    <p class="sub">If you're running a real business and something about your digital setup doesn't feel right — this is for you.</p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Courthouse columns — Law -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M12 2L2 8h20L12 2z"/><line x1="7" y1="10" x2="7" y2="20"/><line x1="12" y1="10" x2="12" y2="20"/><line x1="17" y1="10" x2="17" y2="20"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        </div>
+        <div class="who-title">Law Firms</div>
+        <div class="who-sub">Attorneys &amp; managing partners</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Heartbeat — Medical -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="who-title">Medical &amp; Dental</div>
+        <div class="who-sub">Practices &amp; clinic owners</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Home — Real Estate -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="who-title">Real Estate</div>
+        <div class="who-sub">Brokerages &amp; agents</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Coffee cup — Restaurants -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="5"/><line x1="10" y1="2" x2="10" y2="5"/><line x1="14" y1="2" x2="14" y2="5"/></svg>
+        </div>
+        <div class="who-title">Restaurants</div>
+        <div class="who-sub">Owners &amp; operators</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Dumbbell — Gyms -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="6" y1="12" x2="18" y2="12"/><rect x="3" y="9" width="3" height="6" rx="1"/><rect x="18" y="9" width="3" height="6" rx="1"/><rect x="6" y="10.5" width="3" height="3" rx=".5"/><rect x="15" y="10.5" width="3" height="3" rx=".5"/></svg>
+        </div>
+        <div class="who-title">Gyms &amp; Fitness</div>
+        <div class="who-sub">Studio &amp; gym owners</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Shopping bag — Retail -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <div class="who-title">Retail</div>
+        <div class="who-sub">Shop owners &amp; boutiques</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Rocket — Startups -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        </div>
+        <div class="who-title">Startups</div>
+        <div class="who-sub">Founders &amp; early-stage teams</div>
+      </div>
+      <div class="who-card">
+        <div class="who-icon" aria-hidden="true">
+          <!-- Briefcase — Professional Services -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+        </div>
+        <div class="who-title">Professional Services</div>
+        <div class="who-sub">Consultants &amp; agencies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────── -->
+<section class="sec-alt">
+  <div class="container">
+    <p class="label">Common Questions</p>
+    <h2 class="heading">Straight answers.</h2>
+
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Is this just a pitch for your other services?
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">No. The audit is a standalone deliverable. We're not going to spend your strategy call trying to sell you something — we'll spend it walking through findings. If PTG can help with the next steps, we'll mention it once. No pressure.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          What if I already have an agency or someone managing my website?
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Even better. The audit gives you an independent, outside view of what's actually happening. A lot of our clients use it to evaluate current vendors or decide what to keep vs. change.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          How much time does this take on my end?
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">About 10 minutes for the intake form, and one hour for the strategy call. That's it. We handle the rest.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          Is $750 actually worth it?
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">Most businesses we audit have at least one fixable issue that's costing them more than $750/month — a broken contact form, a weak Google listing, leads not being followed up automatically. The audit finds it. What you do with that is up to you.</div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          What if I'm not ready to make any changes right now?
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a">That's fine. The report doesn't expire. A lot of clients get the audit, file the findings, and come back when the timing is right. You'll know exactly where to start when you're ready.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BLOCK ──────────────────────────────────── -->
+<section class="cta-sec" id="cta">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <h2 class="cta-h">Ready to see what's actually going on?</h2>
+    <p class="cta-sub">One week. One flat fee. A clear picture of your digital systems — and exactly what to do about them.</p>
+    <a href="#" class="btn btn-lg">
+      Book Your $750 Audit
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p class="cta-note">$750 flat &nbsp;·&nbsp; 5–7 business days &nbsp;·&nbsp; Written report + strategy call</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <p class="footer-copy">© 2026 Parsik Tech Group</p>
+  <a href="https://parsiktechgroup.com" class="footer-link" target="_blank" rel="noopener noreferrer">parsiktechgroup.com</a>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
