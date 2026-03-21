@@ -8,16 +8,6 @@ import PageTransition from "@/components/PageTransition";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const clientPanelImages = [
-  { src: "/ClientPanel/ClientPanel (1).png", label: "Overview"    },
-  { src: "/ClientPanel/ClientPanel (2).png", label: "Requests"    },
-  { src: "/ClientPanel/ClientPanel (3).png", label: "Billing"     },
-  { src: "/ClientPanel/ClientPanel (4).png", label: "Documents"   },
-  { src: "/ClientPanel/ClientPanel (5).png", label: "Content"     },
-  { src: "/ClientPanel/ClientPanel (6).png", label: "Forecasting" },
-  { src: "/ClientPanel/ClientPanel (7).png", label: "Training"    },
-  { src: "/ClientPanel/ClientPanel (8).png", label: "Support"     },
-];
 
 const TOPO_NODES = [
   { x: 80,   y: 80,  hub: true  }, { x: 320,  y: 60,  hub: true  },
@@ -131,29 +121,7 @@ function MarqueeRow({ items, speed, reverse = false, label }: {
 export default function Home() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [counts, setCounts] = useState({ revenue: 0, adSpend: 0, leads: 0, costs: 0, efficiency: 0, retention: 0 });
-  const [isImageExpanded, setIsImageExpanded] = useState(false);
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-  const sectionRef      = useRef<HTMLDivElement>(null);
-  const imageIntervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Image carousel
-  useEffect(() => {
-    imageIntervalRef.current = setInterval(() => {
-      setActiveImageIndex(p => (p + 1) % clientPanelImages.length);
-    }, 4000);
-    return () => { if (imageIntervalRef.current) clearInterval(imageIntervalRef.current); };
-  }, []);
-
-  const handleImageChange = (i: number) => {
-    setActiveImageIndex(i);
-    if (imageIntervalRef.current) {
-      clearInterval(imageIntervalRef.current);
-      imageIntervalRef.current = setInterval(() => {
-        setActiveImageIndex(p => (p + 1) % clientPanelImages.length);
-      }, 4000);
-    }
-  };
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   // Counter animation
   useEffect(() => {
@@ -336,26 +304,44 @@ export default function Home() {
                   { v:  `${ha?counts.efficiency:0}%+`, l: "Sustained Efficiency Uplift", s: "Sustained impact"         },
                   { v:  `${ha?counts.retention:0}%`,   l: "Avg. Client Retention",       s: "Long-term partnerships"   },
                 ].map((stat, i) => (
-                  <div key={i} className="p-px rounded-xl group"
-                    style={{ background: "linear-gradient(135deg, rgba(90,90,255,0.2), rgba(0,212,255,0.08))" }}>
-                    <div className="rounded-[11px] px-5 py-7 h-full"
+                  <div key={i} className="p-px rounded-xl group cursor-default"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(90,90,255,0.2), rgba(0,212,255,0.08))",
+                      transition: "background 0.35s ease",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLDivElement).style.background = "linear-gradient(135deg, rgba(90,90,255,0.65), rgba(0,212,255,0.35))";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLDivElement).style.background = "linear-gradient(135deg, rgba(90,90,255,0.2), rgba(0,212,255,0.08))";
+                    }}>
+                    <div className="rounded-[11px] px-5 py-7 h-full relative"
                       style={{
                         background: "#0D0D1A",
                         boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
+                        transition: "transform 0.45s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease",
                       }}
                       onMouseEnter={e => {
-                        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-8px)";
-                        (e.currentTarget as HTMLDivElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.07), 0 20px 40px rgba(90,90,255,0.2)";
+                        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-10px)";
+                        (e.currentTarget as HTMLDivElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.1), 0 28px 56px rgba(90,90,255,0.3), 0 8px 20px rgba(0,0,0,0.5)";
                       }}
                       onMouseLeave={e => {
                         (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                         (e.currentTarget as HTMLDivElement).style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.05)";
                       }}>
-                      <div className="text-3xl md:text-4xl font-bold text-[#F0F0FF] mb-2 tracking-tight tabular-nums group-hover:gradient-text">
-                        {stat.v}
+                      {/* Inner top glow that fades in on hover */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none rounded-[11px]"
+                        style={{
+                          background: "radial-gradient(ellipse at 50% -10%, rgba(90,90,255,0.18) 0%, transparent 65%)",
+                          transition: "opacity 0.35s ease",
+                        }} />
+                      <div className="relative z-10">
+                        <div className="text-3xl md:text-4xl font-bold mb-2 tracking-tight tabular-nums gradient-text">
+                          {stat.v}
+                        </div>
+                        <div className="font-mono text-[11px] font-semibold text-[#7A7A9A] mb-1 leading-tight">{stat.l}</div>
+                        <div className="font-mono text-[10px] text-white/25">{stat.s}</div>
                       </div>
-                      <div className="font-mono text-[11px] font-semibold text-[#7A7A9A] mb-1 leading-tight">{stat.l}</div>
-                      <div className="font-mono text-[10px] text-white/25">{stat.s}</div>
                     </div>
                   </div>
                 ))}
@@ -363,7 +349,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ── OPERATIONS HUB ────────────────────────────────────── */}
+          {/* ── WHAT WE DO ────────────────────────────────────────── */}
           <section className="relative border-t border-white/[0.05] py-28 px-6 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden" style={{ opacity: 0.03 }}>
               <TopologyBg uid="dash" />
@@ -372,130 +358,87 @@ export default function Home() {
               style={{ background: "radial-gradient(circle, rgba(90,90,255,0.09) 0%, transparent 70%)" }} />
 
             <div className="max-w-7xl mx-auto relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-                {/* Left */}
-                <div>
-                  {/* Redesigned badge */}
-                  <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-6 font-mono text-[11px] font-bold tracking-widest uppercase"
-                    style={{
-                      background: "linear-gradient(135deg, rgba(90,90,255,0.15), rgba(0,212,255,0.08))",
-                      border: "1px solid rgba(90,90,255,0.3)",
-                      backdropFilter: "blur(12px)",
-                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), 0 0 30px rgba(90,90,255,0.12)",
-                    }}>
-                    <svg className="w-3.5 h-3.5 text-[#00D4FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    <span className="text-[#818CF8]">Included With Every Service</span>
-                    <span className="relative flex w-1.5 h-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E676] opacity-60" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#00E676]" />
-                    </span>
-                  </div>
-
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#F0F0FF] mb-4 leading-tight">
-                    Your Command Center.
-                  </h2>
-                  <p className="text-lg font-semibold mb-5" style={{ color: "#5A5AFF" }}>
-                    Full visibility into your engagement — no guessing, no chasing.
-                  </p>
-                  <p className="text-base text-[#7A7A9A] mb-8 leading-relaxed">
-                    Every client gets a dedicated operations dashboard. Track requests, review billing, approve deliverables, and reach support — all from one interface built for clarity and accountability.
-                  </p>
-
-                  <ul className="space-y-3 mb-10">
-                    {[
-                      "Real-time request tracking & status updates",
-                      "Transparent billing & usage reporting",
-                      "Content review & approval workflows",
-                      "Priority support access & escalation",
-                      "Full project history & documentation",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 animate-fade-up" style={{ animationDelay: `${i * 0.08}s` }}>
-                        <div className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0"
-                          style={{ background: "rgba(90,90,255,0.15)", border: "1px solid rgba(90,90,255,0.25)" }}>
-                          <svg className="w-3 h-3 text-[#5A5AFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <span className="text-sm text-[#7A7A9A]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-3">
-                    <Link href="/services" className="btn-shimmer text-white px-7 py-3 rounded-full text-sm font-semibold transition-all"
-                      style={{ background: "linear-gradient(135deg, #5A5AFF, #00D4FF)", boxShadow: "0 0 20px rgba(90,90,255,0.35)" }}>
-                      View Services
-                    </Link>
-                    <Link href="/login" className="text-[#F0F0FF] px-7 py-3 rounded-full text-sm font-semibold transition-all"
-                      style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                      Client Login
-                    </Link>
-                  </div>
+              {/* Header */}
+              <div className="max-w-2xl mb-16">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-px w-8 bg-[#5A5AFF]" />
+                  <span className="font-mono text-[11px] font-bold tracking-[0.2em] uppercase text-[#5A5AFF]">What We Do</span>
                 </div>
-
-                {/* Right — 3D tilt dashboard */}
-                <div className="relative">
-                  <div style={{ transform: "perspective(1000px) rotateY(-8deg) rotateX(3deg)" }}>
-                    <div className="absolute inset-6 rounded-2xl blur-3xl pointer-events-none"
-                      style={{ background: "rgba(90,90,255,0.2)" }} />
-
-                    <div className="relative rounded-2xl p-2"
-                      style={{
-                        background: "rgba(255,255,255,0.04)",
-                        backdropFilter: "blur(24px)",
-                        border: "1px solid rgba(90,90,255,0.22)",
-                        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(90,90,255,0.2), 0 40px 100px rgba(0,0,0,0.6)",
-                      }}>
-                      <div className="relative rounded-xl overflow-hidden cursor-pointer group"
-                        onClick={() => setIsImageExpanded(true)}>
-                        <div className="relative aspect-[16/10]">
-                          {clientPanelImages.map((img, idx) => (
-                            <img key={idx} src={img.src} alt={`Dashboard — ${img.label}`}
-                              className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${
-                                activeImageIndex === idx ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
-                              }`} />
-                          ))}
-                          {/* Scan line */}
-                          <div className="animate-scan-line" />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 text-white"
-                              style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                              </svg>
-                              Expand
-                            </div>
-                          </div>
-                          <div className="absolute bottom-3 left-3 font-mono text-[11px] text-white/70 px-2.5 py-1 rounded-md"
-                            style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                            {clientPanelImages[activeImageIndex].label}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Progress */}
-                  <div className="flex items-center justify-between mt-4 px-1">
-                    <div className="flex gap-1.5 items-center">
-                      {clientPanelImages.map((img, idx) => (
-                        <button key={idx} onClick={() => handleImageChange(idx)} aria-label={`View ${img.label}`}
-                          className={`transition-all duration-300 rounded-full ${
-                            activeImageIndex === idx
-                              ? "w-6 h-1.5 bg-[#5A5AFF] shadow-[0_0_8px_rgba(90,90,255,0.8)]"
-                              : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
-                          }`} />
-                      ))}
-                    </div>
-                    <span className="font-mono text-[11px] text-white/25 tabular-nums">
-                      {activeImageIndex + 1} / {clientPanelImages.length}
-                    </span>
-                  </div>
-                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-[#F0F0FF] mb-5 leading-tight">
+                  Web. Marketing. Systems.
+                </h2>
+                <p className="text-base text-[#7A7A9A] leading-relaxed">
+                  PTG builds websites, runs paid acquisition, and sets up the operational systems that keep businesses running. We cover the full stack — from your first impression online to the tools running your back office.
+                </p>
               </div>
+
+              {/* Service cards grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
+                {([
+                  { name: "Website Development",          desc: "Fast, conversion-focused websites built to perform.",               category: "Development",    color: "#5A5AFF", price: "From $1,500"          },
+                  { name: "Web App Development",           desc: "Custom tools that replace manual processes end-to-end.",            category: "Development",    color: "#5A5AFF", price: "From $5,000"          },
+                  { name: "Performance Marketing",         desc: "Paid search & social built around ROI, not vanity metrics.",        category: "Growth",         color: "#00E676", price: "From $4,500/mo"       },
+                  { name: "Technical Support",             desc: "Keep production stable with priority maintenance and monitoring.",   category: "Support",        color: "#00D4FF", price: "From $2,500/mo"       },
+                  { name: "System Audit",                  desc: "Find what's broken fast. Written report + strategy call.",          category: "Premium",        color: "#F59E0B", price: "$750 flat"            },
+                ] as const).map((svc) => (
+                  <Link
+                    key={svc.name}
+                    href="/services"
+                    className="group flex flex-col p-5 rounded-xl cursor-pointer transition-all duration-200"
+                    style={{
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      backdropFilter: "blur(12px)",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";
+                      (e.currentTarget as HTMLElement).style.borderColor = `${svc.color}40`;
+                      (e.currentTarget as HTMLElement).style.boxShadow = `0 0 24px ${svc.color}18`;
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.03)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)";
+                      (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                    }}
+                  >
+                    {/* Category badge */}
+                    <span className="inline-block self-start font-mono text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full mb-4"
+                      style={{ background: `${svc.color}18`, color: svc.color, border: `1px solid ${svc.color}30` }}>
+                      {svc.category}
+                    </span>
+
+                    <h3 className="text-sm font-bold text-[#F0F0FF] mb-2 leading-snug group-hover:text-white transition-colors">
+                      {svc.name}
+                    </h3>
+                    <p className="text-xs text-[#7A7A9A] leading-relaxed flex-1 mb-4">
+                      {svc.desc}
+                    </p>
+
+                    {/* Price + arrow */}
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="font-mono text-[11px] font-semibold" style={{ color: svc.color }}>
+                        {svc.price}
+                      </span>
+                      <svg className="w-3.5 h-3.5 text-white/20 group-hover:text-white/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="flex items-center gap-4">
+                <Link href="/contact"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#7A7A9A] hover:text-[#F0F0FF] transition-colors">
+                  Talk to us first
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+
             </div>
           </section>
 
@@ -821,33 +764,6 @@ export default function Home() {
 
           <Footer />
 
-          {/* ── IMAGE MODAL ───────────────────────────────────────── */}
-          <div className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-300 ${
-            isImageExpanded ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`} onClick={() => setIsImageExpanded(false)}>
-            <div className={`absolute inset-0 bg-black/92 backdrop-blur-sm transition-opacity duration-300 ${isImageExpanded ? "opacity-100" : "opacity-0"}`} />
-            <div className={`relative w-[95vw] max-w-[1400px] transition-all duration-300 ease-out ${isImageExpanded ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
-              onClick={e => e.stopPropagation()}>
-              <div className="bg-[#04040A] rounded-xl overflow-hidden border border-white/10 inline-block">
-                <img src={clientPanelImages[activeImageIndex].src}
-                  alt={`Operations Hub — ${clientPanelImages[activeImageIndex].label}`}
-                  className="max-w-full max-h-[92vh] object-contain" />
-              </div>
-              <div className="absolute bottom-4 left-4 px-4 py-2 font-mono text-sm text-white font-medium rounded-lg"
-                style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                {clientPanelImages[activeImageIndex].label}
-              </div>
-              <button onClick={() => setIsImageExpanded(false)} aria-label="Close"
-                className="absolute -top-4 -right-4 w-10 h-10 rounded-full flex items-center justify-center group transition-all"
-                style={{ background: "#0D0D1A", border: "1px solid rgba(255,255,255,0.1)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#5A5AFF"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#5A5AFF"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#0D0D1A"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.1)"; }}>
-                <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
         </main>
       </PageTransition>
     </>
